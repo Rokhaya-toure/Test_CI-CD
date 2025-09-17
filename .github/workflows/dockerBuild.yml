@@ -23,12 +23,13 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and Push Docker Image
-        uses: docker/build-push-action@v5
+      - name: Build et Push image Docker
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
-          tags: palaye769/projetpython:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/testcicd:latest   
+
 
       # Optionnel : Tests
       - name: Run Tests (if you have any)
